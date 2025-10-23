@@ -1,19 +1,26 @@
 {
     "name": "Flutter Workspace",
-    // Použi predvolený univerzálny image alebo špecifickejší, ak vieš, ktorý potrebuješ
+    // Základný image, ktorý obsahuje bežné nástroje
     "image": "mcr.microsoft.com/devcontainers/universal:2",
 
-    // Funkcia na pridanie Flutteru (Dart SDK obsahuje aj Flutter)
+    // Sekcia "features" definuje dodatočné nástroje na inštaláciu
     "features": {
+        // Feature pre inštaláciu Dart SDK (ktorý zahŕňa aj Flutter)
         "ghcr.io/devcontainers/features/dart:1": {
-             // Môžeš špecifikovať verziu Dart/Flutter, ak potrebuješ
-             // "version": "latest"
+            // Tu môžeš špecifikovať verziu, ak potrebuješ inú ako predvolenú
+            // "version": "latest" 
+        },
+        // Feature pre inštaláciu Git LFS klienta
+        "ghcr.io/devcontainers/features/git-lfs:1": {
+            // Tu môžeš špecifikovať verziu Git LFS, ak potrebuješ
+            // "version": "latest"
         }
     },
 
-    // Rozšírenia VS Code, ktoré sa majú nainštalovať
+    // Nastavenia špecifické pre VS Code v Codespace
     "customizations": {
         "vscode": {
+            // Odporúčané rozšírenia pre Flutter/Dart vývoj
             "extensions": [
                 "Dart-Code.flutter",
                 "Dart-Code.dart-code"
@@ -21,18 +28,21 @@
         }
     },
 
-    // Zabezpečí, že terminál bude bash a načíta konfigurácie správne
+    // Nastavenia pre integrovaný terminál
     "terminal.integrated.defaultProfile.linux": "bash",
     "terminal.integrated.profiles.linux": {
         "bash": {
             "path": "/bin/bash",
-            "args": ["-l"] // Argument -l je dôležitý pre načítanie profilu
+            // Argument -l je dôležitý pre správne načítanie PATH pre nainštalované nástroje
+            "args": ["-l"] 
         }
     }
 
-    // Môžeš odkomentovať a pridať porty, ak ich potrebuješ pre web
+    // --- Voliteľné sekcie (môžeš odkomentovať a upraviť podľa potreby) ---
+
+    // Presmerovanie portov (napr. pre `flutter run -d chrome`)
     // "forwardPorts": [8080], 
 
-    // Môžeš odkomentovať pre automatické spustenie príkazu po vytvorení
+    // Príkaz, ktorý sa automaticky spustí po vytvorení kontajnera
     // "postCreateCommand": "flutter doctor" 
 }
