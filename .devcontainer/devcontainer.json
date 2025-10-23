@@ -1,0 +1,38 @@
+{
+    "name": "Flutter Workspace",
+    // Použi predvolený univerzálny image alebo špecifickejší, ak vieš, ktorý potrebuješ
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+
+    // Funkcia na pridanie Flutteru (Dart SDK obsahuje aj Flutter)
+    "features": {
+        "ghcr.io/devcontainers/features/dart:1": {
+             // Môžeš špecifikovať verziu Dart/Flutter, ak potrebuješ
+             // "version": "latest"
+        }
+    },
+
+    // Rozšírenia VS Code, ktoré sa majú nainštalovať
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Dart-Code.flutter",
+                "Dart-Code.dart-code"
+            ]
+        }
+    },
+
+    // Zabezpečí, že terminál bude bash a načíta konfigurácie správne
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "/bin/bash",
+            "args": ["-l"] // Argument -l je dôležitý pre načítanie profilu
+        }
+    }
+
+    // Môžeš odkomentovať a pridať porty, ak ich potrebuješ pre web
+    // "forwardPorts": [8080], 
+
+    // Môžeš odkomentovať pre automatické spustenie príkazu po vytvorení
+    // "postCreateCommand": "flutter doctor" 
+}
